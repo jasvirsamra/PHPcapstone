@@ -22,8 +22,6 @@ Simplified payroll features, including calculating driver hours, overtime, and b
 Fuel Efficiency Monitoring: 
 Track fuel consumption, optimize routes for fuel savings, and calculate the cost per mile for each load. 
 
-Border Crossing Documentation: 
-Automate paperwork for border crossings and update statuses for international shipments, reducing the administrative burden on drivers and dispatchers. 
 
 Maintenance Scheduling: 
 Keep track of vehicle maintenance schedules and ensure timely repairs or inspections to minimize downtime. 
