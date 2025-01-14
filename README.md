@@ -25,9 +25,6 @@ Track fuel consumption, optimize routes for fuel savings, and calculate the cost
 User-Friendly Dashboard: 
 A customizable dashboard that allows users to monitor KPIs like load status, profitability, fuel usage, and upcoming maintenance. 
 
-Notifications and Alerts: 
-Set up automatic notifications for important updates such as load delivery, fuel consumption issues, maintenance requirements, and driver hours of service. 
-
 Conclusion 
 
 Flextruck will empower trucking companies to better manage their resources and boost profitability through integrated, user-friendly features. By providing real-time tracking, load management, and efficient accounting processes, this app will significantly reduce operational complexity and enhance productivity for logistics businesses. 
