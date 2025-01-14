@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlexTruck - Your Reliable Logistics Partner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #2b3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2b3e50;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #2b3e50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #2b3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .feature-card h3 {
+            color: #2b3e50;
+        }
+
+        .feature-card p {
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>FlexTruck</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Load Management</h2>
+    <div class="feature-card">
+        <h3>Enter, Modify, and Track Loads</h3>
+        <p>Track and post the loads to get the fleet on road efficiently</p>
+            
+            <button onclick="location.href='manage_loads.html'">Manage loads</button>
+        </form>
+    </div>
+
+    <section>
+        <h2>Truck Management</h2>
+        <div class="feature-card">
+            <h3>Track Trucks and Trailers</h3>
+            <p>Integrated GPS tracking provides real-time status updates on load location and estimated delivery times. Click below to view the live tracking dashboard.</p>
+            <button onclick="location.href='dasboard.html'">View Dashboard</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Accounting & Invoicing</h2>
+        <div class="feature-card">
+            <h3>Generate Financial Documents</h3>
+            <p>Automatically generate invoices, financial statements, and profit and loss calculations based on load data and operational costs.</p>
+            <button onclick="location.href='invoicing.html'">Manage Invoices</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Payroll Management</h2>
+        <div class="feature-card">
+            <h3>Driver Payroll Simplified</h3>
+            <p>Calculate driver hours, overtime, and bonuses with our streamlined payroll management system, integrated with accounting systems.</p>
+            <button onclick="location.href='payroll.html'">Manage Payroll</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Fuel Efficiency Monitoring</h2>
+        <div class="feature-card">
+            <h3>Optimize Fuel Costs</h3>
+            <p>Track fuel consumption, optimize routes for fuel savings, and calculate cost per mile for each load to improve efficiency and reduce expenses.</p>
+            <button onclick="location.href='fuel_efficiency.html'">View Fuel Insights</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 FlexTruck. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+
+</html>

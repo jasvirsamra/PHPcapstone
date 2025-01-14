@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Efficiency Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group select {
+            width: 100%;
+        }
+
+        .form-group input[type="number"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Fuel Efficiency Tracking</h2>
+    <form method="POST" action="flextruck.php">
+        <div class="form-group">
+            <label for="truck_id">Truck ID:</label>
+            <input type="number" id="truck_id" name="truck_id" required>
+        </div>
+
+        <div class="form-group">
+            <label for="load_id">Load ID:</label>
+            <input type="number" id="load_id" name="load_id" required>
+        </div>
+
+        <div class="form-group">
+            <label for="distance">Distance (km):</label>
+            <input type="number" step="any" id="distance" name="distance" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fuel_used">Fuel Used (liters):</label>
+            <input type="number" step="any" id="fuel_used" name="fuel_used" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fuel_cost">Fuel Cost ($):</label>
+            <input type="number" step="any" id="fuel_cost" name="fuel_cost" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" name="track_fuel_efficiency" value="Track Fuel Efficiency">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

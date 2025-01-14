@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input[type="number"], input[type="date"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    button[type="submit"] {
+        background-color: #4CAF50; /* Green background */
+        color: white; /* White text */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Add some padding */
+        text-align: center; /* Center the text */
+        text-decoration: none; /* Remove underline */
+        display: inline-block; /* Inline-block element */
+        font-size: 16px; /* Font size */
+        margin: 4px 2px; /* Margin around the button */
+        cursor: pointer; /* Pointer cursor on hover */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+    button[type="submit"]:active {
+        background-color: #367c39; /* Even darker green on click */
+        transform: scale(0.98); /* Slight shrink effect on click */
+    }
+
+    /* Styling the label */
+    label {
+        font-family: Arial, sans-serif; /* Font style */
+        font-size: 14px; /* Font size */
+        font-weight: bold; /* Make the text bold */
+        color: #333; /* Dark gray text color */
+        margin-bottom: 8px; /* Add some space below the label */
+        display: block; /* Make the label block-level for better spacing */
+    }
+
+    /* Styling the select dropdown */
+    select {
+        width: 100%; /* Full width */
+        padding: 10px; /* Inner padding for the dropdown */
+        font-size: 14px; /* Font size */
+        border: 1px solid #ccc; /* Light gray border */
+        border-radius: 5px; /* Rounded corners */
+        background-color: #f9f9f9; /* Light background color */
+        color: #333; /* Text color */
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow inside */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus effects */
+    }
+
+    /* Styling the select dropdown on focus */
+    select:focus {
+        border-color: #4CAF50; /* Green border on focus */
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Green glow */
+        outline: none; /* Remove default focus outline */
+    }
+
+    /* Optional: Spacing between the elements */
+    select + br {
+        margin-bottom: 8px;
+    }
+</style>
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Invoice Management</h1>
+
+        <!-- Create Invoice Form -->
+        <h1>Create Invoice</h1>
+        <form action="flextruck.php" method="POST">
+            <label for="load_id">Load ID:</label><br>
+            <input type="number" id="load_id" name="load_id" required><br><br>
+    
+            <label for="total_amount">Total Amount:</label><br>
+            <input type="number" step="0.01" id="total_amount" name="total_amount" required><br><br>
+    
+            <label for="issue_date">Issue Date:</label><br>
+            <input type="date" id="issue_date" name="issue_date" required><br><br>
+    
+            <label for="due_date">Due Date:</label><br>
+            <input type="date" id="due_date" name="due_date" required><br><br>
+    
+            <button type="submit" name="create_invoice">Create Invoice</button>
+        </form>
+    
+        <h1>Update Invoice Status</h1>
+        <form action="flextruck.php" method="POST">
+            <label for="invoice_id">Invoice ID:</label><br>
+            <input type="number" id="invoice_id" name="invoice_id" required><br><br>
+    
+            <label for="status">Status:</label><br>
+            <select id="status" name="status" required>
+                <option value="Pending">Pending</option>
+                <option value="Paid">Paid</option>
+                <option value="Overdue">Overdue</option>
+            </select><br><br>
+
+
+        <!-- Success or Error Message -->
+        <div id="alertMessage" class="alert">
+            <!-- This message will be dynamically updated based on success or failure -->
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission and display success/error messages dynamically
+        const alertMessage = document.getElementById("alertMessage");
+
+        // Create Invoice Form
+        document.getElementById("createInvoiceForm").onsubmit = function(e) {
+            e.preventDefault();  // Prevent form from submitting the traditional way
+            const formData = new FormData(this);
+            fetch('create_invoice.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alertMessage.classList.add("success");
+                    alertMessage.classList.remove("alert");
+                    alertMessage.innerHTML = data.message;
+                } else {
+                    alertMessage.classList.add("alert");
+                    alertMessage.classList.remove("success");
+                    alertMessage.innerHTML = data.message;
+                }
+                alertMessage.style.display = "block";
+            })
+            .catch(error => {
+                alertMessage.classList.add("alert");
+                alertMessage.classList.remove("success");
+                alertMessage.innerHTML = "Error submitting the form.";
+                alertMessage.style.display = "block";
+            });
+        };
+
+        // Update Invoice Status Form
+        document.getElementById("updateInvoiceForm").onsubmit = function(e) {
+            e.preventDefault();  // Prevent form from submitting the traditional way
+            const formData = new FormData(this);
+            fetch('update_invoice_status.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alertMessage.classList.add("success");
+                    alertMessage.classList.remove("alert");
+                    alertMessage.innerHTML = data.message;
+                } else {
+                    alertMessage.classList.add("alert");
+                    alertMessage.classList.remove("success");
+                    alertMessage.innerHTML = data.message;
+                }
+                alertMessage.style.display = "block";
+            })
+            .catch(error => {
+                alertMessage.classList.add("alert");
+                alertMessage.classList.remove("success");
+                alertMessage.innerHTML = "Error submitting the form.";
+                alertMessage.style.display = "block";
+            });
+        };
+    </script>
+
+</body>
+</html>
