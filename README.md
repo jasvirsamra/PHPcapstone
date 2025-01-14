@@ -22,13 +22,6 @@ Simplified payroll features, including calculating driver hours, overtime, and b
 Fuel Efficiency Monitoring: 
 Track fuel consumption, optimize routes for fuel savings, and calculate the cost per mile for each load. 
 
-
-Maintenance Scheduling: 
-Keep track of vehicle maintenance schedules and ensure timely repairs or inspections to minimize downtime. 
-
-Profit Calculation: 
-Detailed breakdown of revenue, expenses, and profit per load, as well as overall profitability for each vehicle and driver. 
-
 User-Friendly Dashboard: 
 A customizable dashboard that allows users to monitor KPIs like load status, profitability, fuel usage, and upcoming maintenance. 
 
